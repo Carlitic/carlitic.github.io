@@ -53,8 +53,9 @@ body {
 .navbar {
     position: fixed;
     top: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     width: 90%;
     max-width: 1000px;
     background: var(--glass-bg);
@@ -614,20 +615,34 @@ body {
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
-        left: -100%;
-        top: 80px;
+        top: calc(1.5rem + 70px);
+        /* Position it below the floating pill */
+        left: 50%;
+        transform: translateX(-50%);
         flex-direction: column;
-        background-color: var(--bg-secondary);
-        width: 100%;
+        background-color: var(--secondary);
+        /* Fallback */
+        background: var(--glass-bg);
+        /* Match glass */
+        backdrop-filter: blur(12px);
+        width: 90%;
+        /* Match navbar width */
+        max-width: 1000px;
+        /* Match navbar max-width */
         text-align: center;
         transition: 0.3s;
         padding: 2rem 0;
-        border-top: 1px solid var(--glass-border);
-        border-bottom: 1px solid var(--glass-border);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        opacity: 0;
+        pointer-events: none;
     }
 
     .nav-menu.active {
-        left: 0;
+        opacity: 1;
+        pointer-events: all;
+        top: calc(1.5rem + 80px);
+        /* Slight animation down */
     }
 
     .hero h1 {
