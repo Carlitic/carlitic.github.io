@@ -82,19 +82,6 @@ body {
     color: var(--primary-light);
 }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-menu a {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
-}
 
 .nav-menu a::after {
     content: '';
@@ -608,29 +595,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: 0;
-        top: 72px;
-        /* Height of navbar approx */
-        width: 100%;
-        flex-direction: column;
-        background: var(--glass-bg);
-        backdrop-filter: blur(12px);
-        text-align: center;
-        transition: 0.3s;
-        padding: 2rem 0;
-        border-bottom: 1px solid var(--glass-border);
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(-20px);
-    }
-
-    .nav-menu.active {
-        opacity: 1;
-        pointer-events: all;
-        transform: translateY(0);
-    }
 
     .hero h1 {
         font-size: 3rem;
