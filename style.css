@@ -482,9 +482,10 @@ body {
 
 .project-info p {
     color: var(--text-secondary);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
 }
 
 
