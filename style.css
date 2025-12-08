@@ -487,22 +487,6 @@ body {
     line-height: 1.6;
 }
 
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-}
-
-.project-tags span {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--primary-light);
-    padding: 0.5rem 1rem;
-    border-radius: 100px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    border: 1px solid var(--glass-border);
-}
 
 .project-links {
     display: flex;
