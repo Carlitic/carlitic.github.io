@@ -24,6 +24,11 @@ Una plataforma web moderna diseñada para conectar protectoras de animales con p
 -   Incluye gestión de animales y paneles de administración.
 -   Diseño intuitivo y amigable.
 
+### [SMR-Hub](https://smr-hub.pages.dev)
+Plataforma educativa interactiva para modernizar la enseñanza del Ciclo Formativo de Sistemas Microinformáticos y Redes.
+-   Temario estructurado y tests de autoevaluación.
+-   Panel de administración para gestión de contenido.
+
 ## 📬 Contacto
 
 Si deseas contactarme para colaboraciones o consultas:
