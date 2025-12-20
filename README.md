@@ -29,6 +29,11 @@ Plataforma educativa interactiva para modernizar la enseñanza del Ciclo Formati
 -   Temario estructurado y tests de autoevaluación.
 -   Panel de administración para gestión de contenido.
 
+### [Eco Vecinos](https://ecovecino-d017f.web.app)
+Plataforma de gestión para comunidades de propietarios.
+-   Incidencias, tablón de anuncios y juntas online.
+-   Digitalización de la comunicación vecinal.
+
 ## 📬 Contacto
 
 Si deseas contactarme para colaboraciones o consultas:
