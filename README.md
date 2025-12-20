@@ -29,7 +29,7 @@ Plataforma educativa interactiva para modernizar la enseñanza del Ciclo Formati
 -   Temario estructurado y tests de autoevaluación.
 -   Panel de administración para gestión de contenido.
 
-### [Eco Vecinos](https://carlitic.github.io/EcoVecinos/)
+### [Eco Vecinos](https://carlitic.github.io/EcoVecino/)
 Plataforma de gestión para comunidades de propietarios.
 -   Incidencias, tablón de anuncios y juntas online.
 -   Digitalización de la comunicación vecinal.
