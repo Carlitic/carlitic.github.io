@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
+    window.scrollTo(0, 0); // Force scroll to top on load
+    if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual'; // Prevent browser from restoring scroll position
+    }
+
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-menu a');
