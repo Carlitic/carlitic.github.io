@@ -4,6 +4,26 @@
     box-sizing: border-box;
 }
 
+.logo-container {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1000;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.1);
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(147, 51, 234, 0.5));
+}
+
 :root {
     --primary: #9333ea;
     --primary-dark: #7e22ce;
