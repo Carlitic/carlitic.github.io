@@ -19,17 +19,17 @@ Este portafolio está construido utilizando tecnologías web modernas:
 
 ## 📂 Proyectos Destacados
 
-### [Adopta Felicidad](https://adopta-felicidad.vercel.app/)
+### [Adopta Felicidad](https://carlitic.github.io/adopta-felicidad/)
 Una plataforma web moderna diseñada para conectar protectoras de animales con personas que buscan adoptar.
 -   Incluye gestión de animales y paneles de administración.
 -   Diseño intuitivo y amigable.
 
-### [SMR-Hub](https://smr-hub.pages.dev)
+### [SMR-Hub](https://carlitic.github.io/SMR-Hub/)
 Plataforma educativa interactiva para modernizar la enseñanza del Ciclo Formativo de Sistemas Microinformáticos y Redes.
 -   Temario estructurado y tests de autoevaluación.
 -   Panel de administración para gestión de contenido.
 
-### [Eco Vecinos](https://ecovecino-d017f.web.app)
+### [Eco Vecinos](https://carlitic.github.io/EcoVecinos/)
 Plataforma de gestión para comunidades de propietarios.
 -   Incidencias, tablón de anuncios y juntas online.
 -   Digitalización de la comunicación vecinal.
