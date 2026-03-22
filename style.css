@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+/* ================= VARIABLES GLOBALES Y PALETA DE COLORES ================= */
+/* Tema Claro (Por defecto) */
 :root {
   --primary: #9333ea;
   --primary-dark: #7e22ce;
@@ -21,6 +23,7 @@
   --card-hover: rgba(0, 0, 0, 0.04);
 }
 
+/* Tema Oscuro (Se activa mediante el botón) */
 [data-theme="dark"] {
   --primary-glow: rgba(147, 51, 234, 0.5);
   --bg-main: #030303;
@@ -34,6 +37,7 @@
   --card-hover: rgba(255, 255, 255, 0.05);
 }
 
+/* ================= ESTILOS BASE COMPARTIDOS ================= */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
@@ -57,7 +61,7 @@ h1, h2, h3, h4, h5, h6, .logo {
 }
 
 
-/* Navbar Styles */
+/* ==================== 1. CABECERA Y NAVEGACIÓN (HEADER) ==================== */
 .header {
   position: fixed;
   top: 0;
@@ -262,6 +266,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   }
 }
 
+/* ==================== 2. SECCIÓN DE INICIO (HERO) ==================== */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -475,6 +480,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   display: none;
 }
 
+/* ==================== 3. SECCIÓN SOBRE MÍ ==================== */
 .about {
   padding: 8rem 0;
   background: transparent;
@@ -542,6 +548,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   font-weight: 500;
 }
 
+/* ==================== 4. SECCIÓN DE HABILIDADES TÉCNICAS ==================== */
 .skills {
   padding: 8rem 0;
   background: transparent;
@@ -585,6 +592,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   transform: translateY(-3px);
 }
 
+/* ==================== 5. SECCIÓN DE PROYECTOS ==================== */
 .projects {
   padding: 8rem 0;
   background: transparent;
@@ -643,6 +651,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   font-size: 0.9rem;
 }
 
+/* ==================== 6. SECCIÓN DE CONTACTO ==================== */
 .contact {
   padding: 8rem 0;
   background: transparent;
@@ -747,6 +756,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.1);
 }
 
+/* ==================== 7. PIE DE PÁGINA (FOOTER) ==================== */
 .footer {
   padding: 4rem 2rem;
   text-align: center;
