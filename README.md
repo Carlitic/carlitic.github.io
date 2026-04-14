@@ -45,7 +45,6 @@ Plataforma integral de gestión para comunidades de propietarios.
 
 Si deseas contactarme para colaboraciones o consultas:
 -   Email: castanosblanco@gmail.com
--   Teléfono: +34 675 61 87 68
 
 ---
 © 2025 Carlos Javier Castaños Blanco
