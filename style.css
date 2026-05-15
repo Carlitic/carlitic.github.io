@@ -93,9 +93,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   /* Ensure logo stays above if overlap occurs */
 }
 
-.logo span {
-  color: var(--primary);
-}
+
 
 .nav-menu {
   display: flex;
@@ -120,12 +118,6 @@ h1, h2, h3, h4, h5, h6, .logo {
   font-weight: 500;
   transition: color 0.3s ease;
   position: relative;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
 }
 
 .container {

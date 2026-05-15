@@ -141,6 +141,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   for(const card of document.querySelectorAll(".project-card, .skill-card, .stat-card")) {
       card.addEventListener('mousemove', handleOnMouseMove);
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty("--mouse-x", "0px");
+        card.style.setProperty("--mouse-y", "0px");
+      });
   }
 
 });
