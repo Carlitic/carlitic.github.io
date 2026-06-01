@@ -628,9 +628,32 @@ h1, h2, h3, h4, h5, h6, .logo {
 .project-info p {
   color: var(--text-secondary);
   font-size: 1.05rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   line-height: 1.8;
   letter-spacing: 0.01em;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-tags .tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  background: var(--card-hover);
+  color: var(--primary-light);
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+}
+
+.project-tags .tag:hover {
+  border-color: var(--primary);
+  background: var(--primary-glow);
 }
 
 .project-links {
