@@ -35,6 +35,9 @@
                     <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#trayectoria" class="nav-link">Trayectoria</a>
+                </li>
+                <li class="nav-item">
                     <a href="#habilidades" class="nav-link">Habilidades</a>
                 </li>
                 <li class="nav-item">
@@ -47,15 +50,8 @@
             <div class="nav-right">
                 <button aria-label="Cambiar tema" id="theme-toggle" class="theme-toggle">
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line>
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
                     </svg>
                     <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -65,7 +61,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path
-                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                             d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                         </path>
                     </svg>
                 </a>
@@ -82,16 +78,40 @@
     <section id="inicio" class="hero">
         <div class="hero-content">
             <h1 class="glitch" data-text="Carlos Javier Castaños Blanco">Carlos Javier Castaños Blanco</h1>
-            <p class="subtitle">Estudiante de Desarrollo de Aplicaciones Web</p>
+            <p class="subtitle"><span id="typedText"></span><span class="typed-cursor">|</span></p>
             <div class="hero-buttons">
                 <a href="#contacto" class="btn btn-primary">Contáctame</a>
                 <a href="#sobre-mi" class="btn btn-secondary">Conocer Más</a>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
-        </div>
     </section>
+
+    <!-- ================= MARQUESINA INFINITA DE TECNOLOGÍAS ================= -->
+    <div class="tech-slider-wrapper">
+        <div class="tech-slider-track">
+            <div class="tech-slide">Java</div>
+            <div class="tech-slide">Spring Boot</div>
+            <div class="tech-slide">Angular</div>
+            <div class="tech-slide">TypeScript</div>
+            <div class="tech-slide">Docker</div>
+            <div class="tech-slide">Linux</div>
+            <div class="tech-slide">AWS</div>
+            <div class="tech-slide">SQL</div>
+            <div class="tech-slide">Bash Scripting</div>
+            <div class="tech-slide">Git / GitHub</div>
+            <!-- Duplicado exacto para efecto infinito -->
+            <div class="tech-slide">Java</div>
+            <div class="tech-slide">Spring Boot</div>
+            <div class="tech-slide">Angular</div>
+            <div class="tech-slide">TypeScript</div>
+            <div class="tech-slide">Docker</div>
+            <div class="tech-slide">Linux</div>
+            <div class="tech-slide">AWS</div>
+            <div class="tech-slide">SQL</div>
+            <div class="tech-slide">Bash Scripting</div>
+            <div class="tech-slide">Git / GitHub</div>
+        </div>
+    </div>
 
     <!-- ================= SECCIÓN: SOBRE MÍ ================= -->
     <section id="sobre-mi" class="about">
@@ -102,7 +122,7 @@
                     <p>Soy Carlos Javier Castaños Blanco, estudiante de <strong>Desarrollo de Aplicaciones Web
                     (DAW)</strong> Técnico en Sistemas (SMR) ampliando mi perfil hacia el desarrollo de software. 
                     Mi objetivo es unir ambos mundos: aprovechar mi comprensión de la <strong>infraestructura IT, 
-                    Linux y redes</strong> para crear código que sea <strong>eficiente y escalable</strong> 
+                    Linux y redes</strong> para crear código que sea <strong>eficiente y scalable</strong> 
                     desde su base. Busco seguir aprendiendo y aportar valor en proyectos donde pueda combinar el 
                     desarrollo web con un <strong>buen despliegue técnico.</strong>
                     </p>
@@ -117,6 +137,125 @@
                         <p>Formación Previa</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECCIÓN: TRAYECTORIA PROFESIONAL & ACADÉMICA ================= -->
+    <section id="trayectoria" class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Trayectoria Profesional & Académica</h2>
+            <div class="timeline-container">
+                
+                <!-- Evento 1: NTT Data -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <span class="timeline-date">Abril 2026 – Mayo 2026</span>
+                            <h3 class="timeline-role">Técnico en Prácticas</h3>
+                            <span class="timeline-company">NTT Data</span>
+                            <span class="timeline-location">Castellón, España</span>
+                        </div>
+                        <div class="timeline-body">
+                            <ul class="timeline-details">
+                                <li><strong>Desarrollo Full-Stack:</strong> Implementación de una arquitectura desacoplada utilizando <strong>Spring Boot (API REST)</strong> y <strong>Angular 17+ (Componentes Standalone)</strong>.</li>
+                                <li><strong>Gestión de Datos:</strong> Modelado e integración relacional de bases de datos con <strong>Spring Data JPA</strong>.</li>
+                                <li><strong>Infraestructura y DevOps:</strong> Automatización del despliegue del entorno local multiplataforma mediante scripts de orquestación en <strong>Bash/Shell</strong> y <strong>Batch</strong>.</li>
+                                <li><strong>Metodologías Ágiles:</strong> Trabajo en equipo coordinado bajo metodologías ágiles, cumpliendo con la entrega de documentación técnica formal y control de versiones limpio en <strong>GitHub</strong>.</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span class="tag">Spring Boot</span>
+                                <span class="tag">Angular 17+</span>
+                                <span class="tag">Spring Data JPA</span>
+                                <span class="tag">Bash / Shell</span>
+                                <span class="tag">Git / GitHub</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evento 2: DAW (Académico) -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <span class="timeline-date">Actualmente</span>
+                            <h3 class="timeline-role">Desarrollo de Aplicaciones Web (DAW)</h3>
+                            <span class="timeline-company">IES El Caminàs</span>
+                            <span class="timeline-location">Castellón, España</span>
+                        </div>
+                        <div class="timeline-body">
+                            <ul class="timeline-details">
+                                <li><strong>Frontend Moderno:</strong> Construcción de interfaces dinámicas y SPA usando <strong>HTML5, CSS3, JavaScript, Angular y TypeScript</strong>.</li>
+                                <li><strong>Backend & APIs:</strong> Creación de servidores robustos con <strong>Java y Spring Boot</strong>, y modelado relacional de bases de datos.</li>
+                                <li><strong>Metodología de Desarrollo:</strong> Implementación de patrones de arquitectura limpia, gestión de proyectos y despliegues automáticos.</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">Spring Boot</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evento 3: Gen 72 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <span class="timeline-date">Marzo 2025 – Junio 2025</span>
+                            <h3 class="timeline-role">Técnico Web en Prácticas</h3>
+                            <span class="timeline-company">Gen 72</span>
+                            <span class="timeline-location">Castellón, España</span>
+                        </div>
+                        <div class="timeline-body">
+                            <ul class="timeline-details">
+                                <li><strong>Gestión Web:</strong> Mantenimiento y actualización de sitios corporativos y tiendas online.</li>
+                                <li><strong>Infraestructura:</strong> Administración de hosting en la nube y gestión de dominios.</li>
+                                <li><strong>SEO Técnico:</strong> Optimización de código y estructura para mejorar el posicionamiento en buscadores.</li>
+                                <li><strong>Logro:</strong> Gestión autónoma de incidencias y trato directo con tecnologías web reales.</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span class="tag">Gestión Web</span>
+                                <span class="tag">Hosting Cloud</span>
+                                <span class="tag">Gestión Dominios</span>
+                                <span class="tag">SEO Técnico</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evento 4: SMR (Académico) -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <span class="timeline-date">2023 – 2025</span>
+                            <h3 class="timeline-role">Sistemas Microinformáticos y Redes (SMR)</h3>
+                            <span class="timeline-company">IES Álvaro Falomir</span>
+                            <span class="timeline-location">Castellón, España</span>
+                        </div>
+                        <div class="timeline-body">
+                            <ul class="timeline-details">
+                                <li><strong>Fundamentos IT:</strong> Montaje de equipos hardware, diseño de redes locales cableadas/inalámbricas y direccionamiento IP.</li>
+                                <li><strong>Administración de Sistemas:</strong> Gestión y administración de servicios de red en entornos <strong>Linux y Windows Server</strong>.</li>
+                                <li><strong>Servicios e Internet:</strong> Configuración y soporte de servidores web, correo, DHCP, DNS y copias de seguridad automáticas.</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span class="tag">Linux</span>
+                                <span class="tag">Windows Server</span>
+                                <span class="tag">Redes & DNS</span>
+                                <span class="tag">Servidores</span>
+                                <span class="tag">Ciberseguridad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -356,6 +495,20 @@
             </p>
         </div>
     </footer>
+    <!-- Botón Volver Arriba con progreso circular -->
+    <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
+        <svg class="progress-ring" width="48" height="48">
+            <circle class="progress-ring__circle" stroke="var(--primary)" stroke-width="3" fill="transparent" r="21" cx="24" cy="24"/>
+        </svg>
+        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <!-- Cursor seguidor personalizado (Efecto premium) -->
+    <div class="custom-cursor-dot"></div>
+
     <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>

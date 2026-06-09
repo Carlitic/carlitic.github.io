@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
+        entry.target.style.transform = "translateX(0)";
       }
     });
   }, observerOptions);
@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("section");
   sections.forEach((section) => {
     section.style.opacity = "0";
-    section.style.transform = "translateY(20px)";
-    section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    section.style.transform = "translateX(-80px)";
+    section.style.transition = "opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)";
     observer.observe(section);
   });
 
@@ -78,19 +78,38 @@ document.addEventListener("DOMContentLoaded", function () {
   const skillCards = document.querySelectorAll(".skill-card");
   skillCards.forEach((card, index) => {
     card.style.opacity = "0";
-    card.style.transform = "translateY(20px)";
-    card.style.transition = `opacity 0.4s ease ${index * 0.05}s, transform 0.4s ease ${index * 0.05}s`;
+    card.style.transform = "translateX(-40px)";
+    card.style.transition = `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.05}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.05}s`;
 
     const cardObserver = new IntersectionObserver(function (entries) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
+          entry.target.style.transform = "translateX(0)";
         }
       });
     }, observerOptions);
 
     cardObserver.observe(card);
+  });
+
+  // Animar los ítems de la trayectoria (timeline) con efecto de cascada
+  const timelineItems = document.querySelectorAll(".timeline-item");
+  timelineItems.forEach((item, index) => {
+    item.style.opacity = "0";
+    item.style.transform = "translateX(-50px)";
+    item.style.transition = `opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.12}s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.12}s`;
+
+    const itemObserver = new IntersectionObserver(function (entries) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateX(0)";
+        }
+      });
+    }, observerOptions);
+
+    itemObserver.observe(item);
   });
 
   // --- 6. LÓGICA DEL FORMULARIO DE CONTACTO ---
@@ -139,12 +158,168 @@ document.addEventListener("DOMContentLoaded", function () {
       target.style.setProperty("--mouse-y", `${y}px`);
   };
 
-  for(const card of document.querySelectorAll(".project-card, .skill-card, .stat-card")) {
+  for(const card of document.querySelectorAll(".project-card, .skill-card, .stat-card, .timeline-card, .contact-item, .contact-form")) {
       card.addEventListener('mousemove', handleOnMouseMove);
       card.addEventListener('mouseleave', () => {
         card.style.setProperty("--mouse-x", "0px");
         card.style.setProperty("--mouse-y", "0px");
       });
+  }
+
+  // --- 9. LÓGICA DEL CURSOR SEGUIDOR PERSONALIZADO (RASTRO DE PARTÍCULAS) ---
+  const cursorDot = document.querySelector(".custom-cursor-dot");
+
+  let mouseX = -100, mouseY = -100; // Iniciar fuera de la pantalla
+  let dotX = -100, dotY = -100;
+  let lastX = -100, lastY = -100;
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // Calcular distancia desde la última partícula generada
+    const dx = mouseX - lastX;
+    const dy = mouseY - lastY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    // Crear partícula si se movió más de 12px
+    if (distance > 12) {
+      createTrailParticle(mouseX, mouseY);
+      lastX = mouseX;
+      lastY = mouseY;
+    }
+  });
+
+  // Función para crear partículas
+  const createTrailParticle = (x, y) => {
+    if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) return;
+
+    const particle = document.createElement("div");
+    particle.className = "cursor-trail-particle";
+    particle.style.left = `${x}px`;
+    particle.style.top = `${y}px`;
+    
+    if (cursorDot && cursorDot.classList.contains("hovering")) {
+      particle.style.width = "8px";
+      particle.style.height = "8px";
+    }
+
+    document.body.appendChild(particle);
+
+    // Eliminar la partícula cuando termine la animación (500ms)
+    setTimeout(() => {
+      particle.remove();
+    }, 500);
+  };
+
+  const animateCursor = () => {
+    // Interpolación para suavizar el movimiento (efecto de arrastre)
+    dotX += (mouseX - dotX) * 0.25;
+    dotY += (mouseY - dotY) * 0.25;
+
+    if (cursorDot) {
+      cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
+    }
+
+    requestAnimationFrame(animateCursor);
+  };
+  requestAnimationFrame(animateCursor);
+
+  // Agrandar cursor al pasar por encima de elementos interactivos
+  const hoverSelectors = "a, button, .project-card, .skill-card, .timeline-card, .stat-card, .contact-item, input, textarea, .theme-toggle, .hamburger";
+  document.querySelectorAll(hoverSelectors).forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      if (cursorDot) cursorDot.classList.add("hovering");
+    });
+    el.addEventListener("mouseleave", () => {
+      if (cursorDot) cursorDot.classList.remove("hovering");
+    });
+  });
+
+  // Ocultar cursor al salir de la pantalla
+  document.addEventListener("mouseleave", () => {
+    if (cursorDot) cursorDot.style.opacity = "0";
+  });
+  document.addEventListener("mouseenter", () => {
+    if (cursorDot) cursorDot.style.opacity = "1";
+  });
+
+  // --- 10. LÓGICA DEL BOTÓN VOLVER ARRIBA CON PROGRESO CIRCULAR ---
+  const backToTopBtn = document.getElementById("backToTop");
+  const progressCircle = document.querySelector(".progress-ring__circle");
+  
+  if (backToTopBtn && progressCircle) {
+    const radius = progressCircle.r.baseVal.value;
+    const circumference = radius * 2 * Math.PI;
+
+    progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+    progressCircle.style.strokeDashoffset = circumference;
+
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      
+      const offset = circumference - (scrollPercent / 100) * circumference;
+      progressCircle.style.strokeDashoffset = offset;
+
+      // Mostrar/ocultar botón
+      if (scrollTop > 300) {
+        backToTopBtn.classList.add("visible");
+      } else {
+        backToTopBtn.classList.remove("visible");
+      }
+    };
+
+    window.addEventListener("scroll", updateProgress);
+    
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  // --- 11. EFECTO DE ESCRITURA DINÁMICA (TYPING EFFECT) EN EL HERO ---
+  const typedTextSpan = document.getElementById("typedText");
+  const phrases = [
+    "Estudiante de Desarrollo de Aplicaciones Web",
+    "Técnico en Sistemas Microinformáticos & Redes"
+  ];
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingSpeed = 80;
+
+  function type() {
+    if (!typedTextSpan) return;
+
+    const currentPhrase = phrases[phraseIndex];
+    if (isDeleting) {
+      typedTextSpan.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+      typingSpeed = 40; // Borrado rápido
+    } else {
+      typedTextSpan.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+      typingSpeed = 80; // Escritura normal
+    }
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      typingSpeed = 2200; // Pausa larga al terminar la frase
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      typingSpeed = 600; // Pausa antes de iniciar la nueva frase
+    }
+
+    setTimeout(type, typingSpeed);
+  }
+
+  if (typedTextSpan) {
+    type();
   }
 
 });

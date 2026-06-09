@@ -7,10 +7,10 @@
 /* ================= VARIABLES GLOBALES Y PALETA DE COLORES ================= */
 /* Tema Claro (Por defecto) */
 :root {
-  --primary: #9333ea;
-  --primary-dark: #7e22ce;
-  --primary-light: #a855f7;
-  --primary-glow: rgba(147, 51, 234, 0.2);
+  --primary: #10b981;
+  --primary-dark: #059669;
+  --primary-light: #34d399;
+  --primary-glow: rgba(16, 185, 129, 0.2);
   --secondary: #000000;
   --bg-main: #ffffff;
   --bg-secondary: #f4f4f5;
@@ -25,7 +25,7 @@
 
 /* Tema Oscuro (Se activa mediante el botón) */
 [data-theme="dark"] {
-  --primary-glow: rgba(147, 51, 234, 0.5);
+  --primary-glow: rgba(16, 185, 129, 0.5);
   --bg-main: #030303;
   --bg-secondary: #0a0a0a;
   --text-primary: #ffffff;
@@ -50,8 +50,8 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     background-image:
-        radial-gradient(circle at 50% 0%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 0% 50%, rgba(147, 51, 234, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 0% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
     background-attachment: fixed;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -292,7 +292,7 @@ h1, h2, h3, h4, h5, h6, .logo {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.15) 0%, transparent 60%);
     bottom: -10%;
     right: -10%;
     transform: translate(0, 0);
@@ -394,13 +394,13 @@ h1, h2, h3, h4, h5, h6, .logo {
   background: var(--primary);
   color: white;
   border: 1px solid var(--primary);
-  box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
 }
 
 .btn-primary:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(147, 51, 234, 0.5);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
 }
 
 .btn-secondary {
@@ -470,6 +470,77 @@ h1, h2, h3, h4, h5, h6, .logo {
 
 .section-title::after {
   display: none;
+}
+
+/* ==================== MARQUESINA INFINITA DE TECNOLOGÍAS ==================== */
+.tech-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1.5rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.tech-slider-wrapper::before,
+.tech-slider-wrapper::after {
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tech-slider-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-main), transparent);
+}
+
+.tech-slider-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-main), transparent);
+}
+
+.tech-slider-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-marquee 25s linear infinite;
+}
+
+.tech-slide {
+  padding: 0 3rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.tech-slide::before {
+  content: "•";
+  color: var(--primary-light);
+  font-size: 1.5rem;
+}
+
+.tech-slide:hover {
+  color: var(--primary);
+}
+
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* ==================== 3. SECCIÓN SOBRE MÍ ==================== */
@@ -579,7 +650,7 @@ h1, h2, h3, h4, h5, h6, .logo {
 
 .skill-card:hover {
   border-color: var(--primary);
-  background: rgba(147, 51, 234, 0.1);
+  background: rgba(16, 185, 129, 0.1);
   color: var(--text-primary);
   transform: translateY(-3px);
 }
@@ -768,7 +839,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   outline: none;
   border-color: var(--primary);
   background: var(--card-hover);
-  box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.1);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
 }
 
 /* ==================== 7. PIE DE PÁGINA (FOOTER) ==================== */
@@ -780,20 +851,205 @@ h1, h2, h3, h4, h5, h6, .logo {
   color: var(--text-secondary);
 }
 
-@media (max-width: 768px) {
 
-    .hero h1 {
-        font-size: 3rem;
-    }
+/* ==================== TRAYECTORIA PROFESIONAL (TIMELINE) ==================== */
+.timeline-section {
+  padding: 8rem 0;
+  background: transparent;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Línea lateral izquierda */
+.timeline-container::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--primary) 15%, var(--primary-light) 85%, transparent);
+  top: 0;
+  bottom: 0;
+  left: 20px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 100%;
+  padding-left: 3.5rem;
+  margin-bottom: 2.5rem;
+  z-index: 1;
+}
+
+/* Puntos en la línea lateral */
+.timeline-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-main);
+  border: 4px solid var(--primary);
+  top: calc(1rem + 30px);
+  left: 10px;
+  z-index: 2;
+  box-shadow: 0 0 10px var(--primary-glow);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  background: var(--primary-light);
+  transform: scale(1.2);
+  box-shadow: 0 0 15px var(--primary);
+}
+
+/* Tarjetas del Timeline */
+.timeline-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.timeline-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-header {
+  margin-bottom: 1.5rem;
+}
+
+.timeline-date {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  background: var(--primary-glow);
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-role {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.timeline-company {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  opacity: 0.9;
+}
+
+.timeline-location {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* Layout en dos columnas para pantallas de escritorio/tablets grandes */
+@media (min-width: 769px) {
+  .timeline-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  
+  .timeline-header {
+    margin-bottom: 0;
+    border-right: 1px solid var(--glass-border);
+    padding-right: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+.timeline-details {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-details li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.timeline-details li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-light);
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>') no-repeat center;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>') no-repeat center;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.timeline-tags .tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  background: var(--card-hover);
+  color: var(--primary-light);
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+}
+
+.timeline-tags .tag:hover {
+  border-color: var(--primary);
+  background: var(--primary-glow);
+}
+
+/* Responsividad para móviles y tablets */
+@media (max-width: 1024px) {
+  .timeline-container {
+    max-width: 800px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
 }
 
 /* Dynamic Hover Glow Effect */
-.stat-card, .skill-card, .project-card {
+.stat-card, .skill-card, .project-card, .timeline-card, .contact-item, .contact-form {
     position: relative;
     overflow: hidden;
 }
 
-.stat-card::before, .skill-card::before, .project-card::before {
+.stat-card::before, .skill-card::before, .project-card::before, .timeline-card::before, .contact-item::before, .contact-form::before {
     background: radial-gradient(
         300px circle at var(--mouse-x, 0) var(--mouse-y, 0),
         var(--primary-glow),
@@ -812,11 +1068,162 @@ h1, h2, h3, h4, h5, h6, .logo {
     pointer-events: none;
 }
 
-.stat-card:hover::before, .skill-card:hover::before, .project-card:hover::before {
+.stat-card:hover::before, .skill-card:hover::before, .project-card:hover::before, .timeline-card:hover::before, .contact-item:hover::before, .contact-form:hover::before {
     opacity: 1;
 }
 
-.stat-card > *, .skill-card > *, .project-card > * {
+.stat-card > *, .skill-card > *, .project-card > *, .timeline-card > *, .contact-item > *, .contact-form > * {
     position: relative;
     z-index: 1;
 }
+
+/* ==================== CURSOR SEGUIDOR PERSONALIZADO (RASTRO DE PARTICULAS) ==================== */
+/* Ocultar cursor nativo en dispositivos con mouse de escritorio */
+@media (pointer: fine) {
+  html, body, a, button, select, input, textarea, .project-card, .skill-card, .timeline-card, .stat-card, .contact-item, .contact-form {
+    cursor: none !important;
+  }
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  box-shadow: 0 0 6px var(--primary-light);
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%) scale(1);
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.2s ease, 
+              height 0.2s ease, 
+              background 0.2s ease;
+}
+
+/* Efecto Hover: el punto se agranda ligeramente */
+.custom-cursor-dot.hovering {
+  transform: translate(-50%, -50%) scale(2);
+  background: var(--primary-light);
+  box-shadow: 0 0 12px var(--primary);
+}
+
+/* Partículas del Rastro */
+.cursor-trail-particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  box-shadow: 0 0 6px var(--primary-glow);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  animation: cursor-trail-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cursor-trail-fade {
+  0% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.1);
+  }
+}
+
+/* Ocultar en dispositivos táctiles ya que no hay mouse */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor-dot,
+  .cursor-trail-particle {
+    display: none !important;
+  }
+  
+  html, body, a, button, select, input, textarea, .project-card, .skill-card, .timeline-card, .stat-card, .back-to-top {
+    cursor: auto !important;
+  }
+}
+
+/* ==================== BOTÓN VOLVER ARRIBA CON PROGRESO CIRCULAR ==================== */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 99;
+  transform: translateY(20px) scale(0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px) scale(1.08);
+  border-color: var(--primary);
+  background: var(--card-hover);
+  color: var(--primary-light);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+}
+
+.back-to-top .progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.back-to-top .progress-ring__circle {
+  transition: stroke-dashoffset 0.1s ease;
+  transform-origin: 50% 50%;
+  stroke: var(--primary);
+}
+
+.back-to-top .arrow-icon {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.back-to-top:hover .arrow-icon {
+  transform: translateY(-2px);
+}
+
+/* ==================== EFECTO DE ESCRITURA DILATADA (TYPING EFFECT) ==================== */
+.typed-cursor {
+  color: var(--primary);
+  font-weight: 600;
+  animation: cursor-blink 1s step-end infinite;
+  margin-left: 4px;
+}
+
+@keyframes cursor-blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: var(--primary-light);
+  }
+}
+
+
+
