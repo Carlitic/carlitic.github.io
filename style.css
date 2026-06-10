@@ -19,8 +19,8 @@
   --border-color: rgba(0, 0, 0, 0.1);
   --glass-bg: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(0, 0, 0, 0.08);
-  --card-bg: rgba(0, 0, 0, 0.02);
-  --card-hover: rgba(0, 0, 0, 0.04);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-hover: rgba(255, 255, 255, 0.95);
 }
 
 /* Tema Oscuro (Se activa mediante el botón) */
@@ -33,8 +33,8 @@
   --border-color: rgba(255, 255, 255, 0.1);
   --glass-bg: rgba(10, 10, 10, 0.7);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --card-bg: rgba(255, 255, 255, 0.03);
-  --card-hover: rgba(255, 255, 255, 0.05);
+  --card-bg: rgba(15, 15, 20, 0.85);
+  --card-hover: rgba(25, 25, 35, 0.95);
 }
 
 /* ================= ESTILOS BASE COMPARTIDOS ================= */
@@ -52,14 +52,33 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ================= ANIMATED BACKGROUND (VANTA) ================= */
-#vanta-bg {
+/* ================= FONDO CUADRICULADO CSS ================= */
+.grid-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     z-index: -1;
+    pointer-events: none;
+    background-color: var(--bg-main);
+    background-image: 
+        linear-gradient(var(--border-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+}
+
+/* Efecto de luz central sobre la cuadrícula (como en la imagen) */
+.grid-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, var(--primary-glow) 0%, transparent 70%);
+    opacity: 0.4;
     pointer-events: none;
 }
 
@@ -723,7 +742,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   font-weight: 600;
   padding: 0.25rem 0.75rem;
   border-radius: 100px;
-  background: var(--card-hover);
+  background: var(--bg-main);
   color: var(--primary-light);
   border: 1px solid var(--glass-border);
   transition: all 0.3s ease;
@@ -831,7 +850,7 @@ h1, h2, h3, h4, h5, h6, .logo {
 .form-group input,
 .form-group textarea {
   padding: 1.25rem;
-  background: var(--card-bg);
+  background: var(--bg-main);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   color: var(--text-primary);
@@ -884,7 +903,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   padding: 4rem 2rem;
   text-align: center;
   background: transparent;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid var(--primary-glow);
   color: var(--text-secondary);
 }
 
@@ -1068,7 +1087,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   font-weight: 600;
   padding: 0.25rem 0.75rem;
   border-radius: 100px;
-  background: var(--card-hover);
+  background: var(--bg-main);
   color: var(--primary-light);
   border: 1px solid var(--glass-border);
   transition: all 0.3s ease;

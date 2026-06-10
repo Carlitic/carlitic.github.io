@@ -12,36 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contactForm");
   const themeToggle = document.getElementById("theme-toggle");
 
-  // --- 3. LÓGICA DEL MODO CLARO/OSCURO Y FONDO 3D VANTA ---
-  let vantaEffect = null;
-  const initVanta = (theme) => {
-    const bgColor = theme === "dark" ? 0x030303 : 0xffffff;
-    if (vantaEffect) {
-      vantaEffect.setOptions({ backgroundColor: bgColor });
-    } else if (typeof VANTA !== 'undefined') {
-      vantaEffect = VANTA.NET({
-        el: "#vanta-bg",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0x6366f1, // --primary
-        backgroundColor: bgColor,
-        points: 12.00,
-        maxDistance: 22.00,
-        spacing: 16.00
-      });
-    }
-  };
-
-  // Inicializar Vanta con el tema actual
-  const currentThemeInit = document.documentElement.getAttribute("data-theme") || 
-                           (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  initVanta(currentThemeInit);
-
+  // --- 3. LÓGICA DEL MODO CLARO/OSCURO ---
   // Evento al hacer click en el botón del tema (sol/luna)
   themeToggle.addEventListener("click", () => {
     const currentTheme = document.documentElement.getAttribute("data-theme");
@@ -49,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme); // Guardar la preferencia en el ordenador del usuario
-    initVanta(newTheme); // Actualizar color de Vanta
   });
 
   // Escuchar a los cambios del tema del sistema operativo en tiempo real
@@ -60,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Sólo cambiamos el tema automáticamente si el usuario no ha forzado uno manualmente
         const newThemeOs = e.matches ? "dark" : "light";
         document.documentElement.setAttribute("data-theme", newThemeOs);
-        initVanta(newThemeOs);
       }
     });
 
