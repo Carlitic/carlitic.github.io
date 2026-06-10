@@ -113,6 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // --- 6. LÓGICA DEL FORMULARIO DE CONTACTO ---
+  // IMPORTANTE: Obtené tu clave de acceso gratuita en https://web3forms.com/ y colocala acá abajo para recibir los correos.
+  const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault(); // Evita que la página se recargue
 
@@ -120,13 +123,64 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = document.getElementById("email").value;
     const message = document.getElementById("message").value;
 
-    const subject = `Contacto Portfolio - ${name}`;
-    const body = `Nombre: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMensaje:%0D%0A${message}`;
+    const formSubmitBtn = document.getElementById("formSubmitBtn");
+    const formStatus = document.getElementById("formStatus");
 
-    // Abrir el cliente de correo del usuario (Outlook, Mail, etc) con los datos rellenados
-    window.location.href = `mailto:castanosblanco@gmail.com?subject=${subject}&body=${body}`;
+    // Función auxiliar para mostrar el estado del envío
+    const showStatus = (msg, type) => {
+      formStatus.textContent = msg;
+      formStatus.className = `form-status visible ${type}`;
+      setTimeout(() => {
+        formStatus.className = "form-status";
+      }, 5000);
+    };
 
-    contactForm.reset();
+    // Si no se configuró la clave de Web3Forms, se hace fallback al mailto tradicional
+    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === "YOUR_ACCESS_KEY_HERE") {
+      const subject = `Contacto Portfolio - ${name}`;
+      const body = `Nombre: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMensaje:%0D%0A${message}`;
+      window.location.href = `mailto:castanosblanco@gmail.com?subject=${subject}&body=${body}`;
+      contactForm.reset();
+      return;
+    }
+
+    // Cambiar estado del botón
+    const originalBtnText = formSubmitBtn.textContent;
+    formSubmitBtn.textContent = "Enviando...";
+    formSubmitBtn.disabled = true;
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        name: name,
+        email: email,
+        message: message,
+        subject: `Nuevo mensaje de contacto de ${name}`
+      })
+    })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status === 200) {
+          showStatus("¡Mensaje enviado con éxito!", "success");
+          contactForm.reset();
+        } else {
+          console.error(response);
+          showStatus(json.message || "Ocurrió un error al enviar el mensaje.", "error");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        showStatus("Hubo un problema de conexión al enviar el mensaje.", "error");
+      })
+      .finally(() => {
+        formSubmitBtn.textContent = originalBtnText;
+        formSubmitBtn.disabled = false;
+      });
   });
 
   // --- 7. DESPLAZAMIENTO SUAVE PARA ENLACES (SMOOTH SCROLL) ---
