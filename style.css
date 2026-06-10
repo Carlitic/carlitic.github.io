@@ -21,6 +21,7 @@
   --glass-border: rgba(0, 0, 0, 0.08);
   --card-bg: rgba(255, 255, 255, 0.8);
   --card-hover: rgba(255, 255, 255, 0.95);
+  --grid-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v1H0zM0 0h1v40H0z' fill='rgba(0, 0, 0, 0.08)' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 /* Tema Oscuro (Se activa mediante el botón) */
@@ -35,6 +36,7 @@
   --glass-border: rgba(255, 255, 255, 0.08);
   --card-bg: rgba(15, 15, 20, 0.85);
   --card-hover: rgba(25, 25, 35, 0.95);
+  --grid-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v1H0zM0 0h1v40H0z' fill='rgba(255, 255, 255, 0.08)' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 /* ================= ESTILOS BASE COMPARTIDOS ================= */
@@ -62,14 +64,7 @@ body {
     z-index: -1;
     pointer-events: none;
     background-color: var(--bg-main);
-    background-image: 
-        -webkit-linear-gradient(left, var(--border-color) 1px, transparent 1px),
-        -webkit-linear-gradient(top, var(--border-color) 1px, transparent 1px);
-    background-image: 
-        linear-gradient(to right, var(--border-color) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-position: center center;
+    background-image: var(--grid-pattern);
 }
 
 /* Efecto de luz central sobre la cuadrícula (como en la imagen) */
