@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- 6. LÓGICA DEL FORMULARIO DE CONTACTO ---
   // IMPORTANTE: Obtené tu clave de acceso gratuita en https://web3forms.com/ y colocala acá abajo para recibir los correos.
-  const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+  const WEB3FORMS_ACCESS_KEY = "4eef070e-23cd-45fe-a486-be0017610f47";
 
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault(); // Evita que la página se recargue
