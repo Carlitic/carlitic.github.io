@@ -11,15 +11,7 @@
     <link rel="stylesheet" href="style.css?v=2.0">
     <link rel="icon" type="image/png" href="./favicon.png">
     <link rel="shortcut icon" href="./favicon.png">
-    <script>
-        const storedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-        }
-    </script>
+    <script src="theme.js"></script>
 </head>
 
 <body>
@@ -490,8 +482,7 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; <span id="year"></span> Carlos Javier Castaños Blanco. Todos los derechos reservados. | <a
-                    href="https://github.com/Carlitic" target="_blank" rel="noopener noreferrer"
-                    style="color: var(--primary-light); text-decoration: none;">GitHub</a>
+                    href="https://github.com/Carlitic" target="_blank" rel="noopener noreferrer">GitHub</a>
             </p>
         </div>
     </footer>
@@ -509,9 +500,7 @@
     <!-- Cursor seguidor personalizado (Efecto premium) -->
     <div class="custom-cursor-dot"></div>
 
-    <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+
 <script src="script.js?v=2.0"></script>
 </body>
 </html>

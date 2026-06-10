@@ -322,4 +322,9 @@ document.addEventListener("DOMContentLoaded", function () {
     type();
   }
 
+  // --- 12. CONFIGURACIÓN DEL AÑO EN EL FOOTER ---
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 });
