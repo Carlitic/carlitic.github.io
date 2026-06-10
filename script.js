@@ -327,4 +327,41 @@ document.addEventListener("DOMContentLoaded", function () {
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
+
+  // --- 13. DATOS ESTRUCTURADOS (JSON-LD) PARA SEO ---
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Carlos Javier Castaños Blanco",
+    "url": "https://carlitic.github.io/",
+    "sameAs": [
+      "https://github.com/Carlitic",
+      "https://www.linkedin.com/in/carlos-casta%C3%B1os-blanco/"
+    ],
+    "jobTitle": "Desarrollador de Aplicaciones Web",
+    "knowsAbout": [
+      "Java",
+      "Spring Boot",
+      "Angular",
+      "TypeScript",
+      "Docker",
+      "Linux",
+      "SQL",
+      "Bash Scripting",
+      "Git",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "AWS"
+    ],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "IES El Caminàs"
+    }
+  };
+
+  const schemaScript = document.createElement("script");
+  schemaScript.type = "application/ld+json";
+  schemaScript.text = JSON.stringify(schemaData);
+  document.head.appendChild(schemaScript);
 });
