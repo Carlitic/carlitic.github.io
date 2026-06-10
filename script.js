@@ -446,4 +446,34 @@ document.addEventListener("DOMContentLoaded", function () {
   schemaScript.type = "application/ld+json";
   schemaScript.text = JSON.stringify(schemaData);
   document.head.appendChild(schemaScript);
+
+  // --- 14. EASTER EGG (SECUENCIA 444) ---
+  let keySequence = "";
+  document.addEventListener("keydown", (e) => {
+    keySequence += e.key;
+    // Mantener sólo los últimos 3 caracteres
+    if (keySequence.length > 3) {
+      keySequence = keySequence.slice(-3);
+    }
+    
+    if (keySequence === "444") {
+      // Disparar confeti si la librería cargó
+      if (typeof confetti === "function") {
+        confetti({
+          particleCount: 200,
+          spread: 100,
+          origin: { y: 0.6 },
+          colors: ['#6366f1', '#818cf8', '#ffffff'] // Colores índigo
+        });
+      }
+      
+      // Mostrar alerta
+      setTimeout(() => {
+        alert("¡Encontraste el Easter Egg! 🚀\\nBienvenido al lado oculto del portfolio de CCB.");
+      }, 500); // Pequeño retraso para que explote el confeti primero
+      
+      // Reiniciar secuencia
+      keySequence = "";
+    }
+  });
 });
