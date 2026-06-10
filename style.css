@@ -49,11 +49,75 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    background-image:
-        radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 0% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
-    background-attachment: fixed;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ================= ANIMATED BACKGROUND ================= */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.6;
+    animation: moveBlob 20s infinite alternate ease-in-out;
+}
+
+[data-theme="dark"] .blob {
+    opacity: 0.4;
+}
+
+.blob-1 {
+    width: 40vw;
+    height: 40vw;
+    background: var(--primary-light);
+    top: -10%;
+    left: -10%;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    width: 35vw;
+    height: 35vw;
+    background: var(--primary);
+    bottom: -10%;
+    right: -10%;
+    animation-delay: -5s;
+    animation-direction: alternate-reverse;
+}
+
+.blob-3 {
+    width: 30vw;
+    height: 30vw;
+    background: var(--primary-glow);
+    top: 40%;
+    left: 40%;
+    animation-delay: -10s;
+    animation-duration: 25s;
+}
+
+@keyframes moveBlob {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(10vw, 15vh) scale(1.1);
+    }
+    66% {
+        transform: translate(-15vw, 5vh) scale(0.9);
+    }
+    100% {
+        transform: translate(5vw, -10vh) scale(1);
+    }
 }
 
 h1, h2, h3, h4, h5, h6, .logo {
