@@ -432,7 +432,7 @@ document.addEventListener("DOMContentLoaded", function () {
           particleCount: 200,
           spread: 100,
           origin: { y: 0.6 },
-          colors: ['#6366f1', '#818cf8', '#ffffff'] // Colores índigo
+          colors: ['#e11d48', '#fb7185', '#ffffff'] // Colores carmesí
         });
       }
       

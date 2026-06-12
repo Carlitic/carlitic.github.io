@@ -7,10 +7,10 @@
 /* ================= VARIABLES GLOBALES Y PALETA DE COLORES ================= */
 /* Tema Claro (Por defecto) */
 :root {
-  --primary: #6366f1;
-  --primary-dark: #4f46e5;
-  --primary-light: #818cf8;
-  --primary-glow: rgba(99, 102, 241, 0.2);
+  --primary: #e11d48;
+  --primary-dark: #be123c;
+  --primary-light: #fb7185;
+  --primary-glow: rgba(225, 29, 72, 0.2);
   --secondary: #000000;
   --bg-main: #ffffff;
   --bg-secondary: #f4f4f5;
@@ -26,7 +26,7 @@
 
 /* Tema Oscuro (Se activa mediante el botón) */
 [data-theme="dark"] {
-  --primary-glow: rgba(99, 102, 241, 0.5);
+  --primary-glow: rgba(225, 29, 72, 0.5);
   --bg-main: #030303;
   --bg-secondary: #0a0a0a;
   --text-primary: #ffffff;
@@ -316,7 +316,7 @@ h1, h2, h3, h4, h5, h6, .logo {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(129, 140, 248, 0.15) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(251, 113, 133, 0.15) 0%, transparent 60%);
     bottom: -10%;
     right: -10%;
     transform: translate(0, 0);
@@ -418,13 +418,13 @@ h1, h2, h3, h4, h5, h6, .logo {
   background: var(--primary);
   color: white;
   border: 1px solid var(--primary);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 20px rgba(225, 29, 72, 0.3);
 }
 
 .btn-primary:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 30px rgba(225, 29, 72, 0.5);
 }
 
 .btn-secondary {
@@ -674,7 +674,7 @@ h1, h2, h3, h4, h5, h6, .logo {
 
 .skill-card:hover {
   border-color: var(--primary);
-  background: rgba(99, 102, 241, 0.1);
+  background: rgba(225, 29, 72, 0.1);
   color: var(--text-primary);
   transform: translateY(-3px);
 }
@@ -863,7 +863,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   outline: none;
   border-color: var(--primary);
   background: var(--card-hover);
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.1);
 }
 
 .form-status {
@@ -885,9 +885,9 @@ h1, h2, h3, h4, h5, h6, .logo {
 }
 
 .form-status.success {
-  background: rgba(99, 102, 241, 0.1);
+  background: rgba(225, 29, 72, 0.1);
   color: var(--primary-light);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(225, 29, 72, 0.2);
 }
 
 .form-status.error {
@@ -999,7 +999,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   background: var(--primary-glow);
   padding: 0.35rem 0.85rem;
   border-radius: 100px;
-  border: 1px solid rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(225, 29, 72, 0.15);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.75rem;
@@ -1246,7 +1246,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   border-color: var(--primary);
   background: var(--card-hover);
   color: var(--primary-light);
-  box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 25px rgba(225, 29, 72, 0.4);
 }
 
 .back-to-top .progress-ring {
