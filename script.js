@@ -432,7 +432,7 @@ document.addEventListener("DOMContentLoaded", function () {
           particleCount: 200,
           spread: 100,
           origin: { y: 0.6 },
-          colors: ['#e11d48', '#fb7185', '#ffffff'] // Colores carmesí
+          colors: ['#7c3aed', '#a78bfa', '#ffffff'] // Colores violeta y lavanda
         });
       }
       

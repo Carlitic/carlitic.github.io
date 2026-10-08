@@ -7,10 +7,15 @@
 /* ================= VARIABLES GLOBALES Y PALETA DE COLORES ================= */
 /* Tema Claro (Por defecto) */
 :root {
-  --primary: #e11d48;
-  --primary-dark: #be123c;
-  --primary-light: #fb7185;
-  --primary-glow: rgba(225, 29, 72, 0.2);
+  /* Tokens principales */
+  --color-primary: #7c3aed;
+  --color-accent: #a78bfa;
+  --color-terminal-green: #c084fc;
+
+  --primary: var(--color-primary);
+  --primary-dark: #6d28d9;
+  --primary-light: var(--color-accent);
+  --primary-glow: rgba(124, 58, 237, 0.2);
   --secondary: #000000;
   --bg-main: #ffffff;
   --bg-secondary: #f4f4f5;
@@ -26,7 +31,7 @@
 
 /* Tema Oscuro (Se activa mediante el botón) */
 [data-theme="dark"] {
-  --primary-glow: rgba(225, 29, 72, 0.5);
+  --primary-glow: rgba(124, 58, 237, 0.5);
   --bg-main: #030303;
   --bg-secondary: #0a0a0a;
   --text-primary: #ffffff;
@@ -75,7 +80,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(ellipse at 50% 0%, var(--primary-glow) 0%, transparent 70%);
+    background: radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.35) 0%, transparent 70%);
     opacity: 0.4;
     pointer-events: none;
 }
@@ -316,7 +321,7 @@ h1, h2, h3, h4, h5, h6, .logo {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(251, 113, 133, 0.15) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.15) 0%, transparent 60%);
     bottom: -10%;
     right: -10%;
     transform: translate(0, 0);
@@ -418,13 +423,13 @@ h1, h2, h3, h4, h5, h6, .logo {
   background: var(--primary);
   color: white;
   border: 1px solid var(--primary);
-  box-shadow: 0 0 20px rgba(225, 29, 72, 0.3);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
 }
 
 .btn-primary:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(225, 29, 72, 0.5);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
 }
 
 .btn-secondary {
@@ -619,7 +624,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   border-color: var(--primary);
   background: var(--card-hover);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(124, 58, 237, 0.15);
 }
 
 .stat-card h3 {
@@ -674,9 +679,10 @@ h1, h2, h3, h4, h5, h6, .logo {
 
 .skill-card:hover {
   border-color: var(--primary);
-  background: rgba(225, 29, 72, 0.1);
+  background: rgba(124, 58, 237, 0.1);
   color: var(--text-primary);
   transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.15);
 }
 
 /* ==================== 5. SECCIÓN DE PROYECTOS ==================== */
@@ -706,7 +712,7 @@ h1, h2, h3, h4, h5, h6, .logo {
 .project-card:hover {
   border-color: var(--primary);
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(124, 58, 237, 0.2);
 }
 
 .project-info {
@@ -863,7 +869,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   outline: none;
   border-color: var(--primary);
   background: var(--card-hover);
-  box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.1);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
 }
 
 .form-status {
@@ -885,9 +891,9 @@ h1, h2, h3, h4, h5, h6, .logo {
 }
 
 .form-status.success {
-  background: rgba(225, 29, 72, 0.1);
+  background: rgba(124, 58, 237, 0.1);
   color: var(--primary-light);
-  border: 1px solid rgba(225, 29, 72, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.2);
 }
 
 .form-status.error {
@@ -984,7 +990,7 @@ h1, h2, h3, h4, h5, h6, .logo {
 .timeline-card:hover {
   border-color: var(--primary);
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(124, 58, 237, 0.15);
 }
 
 .timeline-header {
@@ -999,7 +1005,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   background: var(--primary-glow);
   padding: 0.35rem 0.85rem;
   border-radius: 100px;
-  border: 1px solid rgba(225, 29, 72, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.15);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.75rem;
@@ -1246,7 +1252,7 @@ h1, h2, h3, h4, h5, h6, .logo {
   border-color: var(--primary);
   background: var(--card-hover);
   color: var(--primary-light);
-  box-shadow: 0 0 25px rgba(225, 29, 72, 0.4);
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.4);
 }
 
 .back-to-top .progress-ring {
@@ -1289,5 +1295,24 @@ h1, h2, h3, h4, h5, h6, .logo {
   }
 }
 
+/* ==================== CÓDIGO EN LÍNEA (TERMINAL PURPLE) ==================== */
+code, pre, kbd {
+  font-family: 'Fira Code', monospace;
+  color: var(--color-terminal-green);
+}
 
+/* ==================== AVATAR DEL AUTOR ==================== */
+.author-avatar,
+.avatar {
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
 
+.author-avatar:hover,
+.avatar:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.3);
+}
