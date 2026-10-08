@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
       target.style.setProperty("--mouse-y", `${y}px`);
   };
 
-  for(const card of document.querySelectorAll(".project-card, .skill-card, .stat-card, .timeline-card, .contact-item, .contact-form")) {
+  for(const card of document.querySelectorAll(".project-card, .skill-card, .stat-card, .timeline-card, .blog-card, .contact-item, .contact-form")) {
       card.addEventListener('mousemove', handleOnMouseMove);
       card.addEventListener('mouseleave', () => {
         card.style.setProperty("--mouse-x", "0px");
